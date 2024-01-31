@@ -18,7 +18,7 @@ export default function AppLayout({ children }: RootLayoutProps) {
   return (
     <html lang="ko">
       <body className={inter.className}>
-        <div className={style.container}>{children}</div>
+        <div className={style.appLayout}>{children}</div>
       </body>
     </html>
   );
