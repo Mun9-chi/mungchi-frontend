@@ -2,9 +2,10 @@ import { style } from '@vanilla-extract/css';
 
 export const appLayout = style({
   display: 'flex',
-  justifyContent: 'center',
+  flexDirection: 'column',
   alignItems: 'center',
   width: '100%',
+  minHeight: '100vh',
 });
 
 export const container = style({
