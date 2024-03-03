@@ -4,6 +4,7 @@ interface Writing {
     nickname: string;
     imageUrl: string;
   };
+  thumbnail: string;
   content: string;
   likes: number;
   isVideo: boolean;
