@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import * as style from './Card.css';
+import * as style from './WritingCard.css';
 
 type CardProps = Writing;
 

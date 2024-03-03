@@ -4,7 +4,7 @@ import Masonry from './_components/Masonry/Masonry';
 
 import mockWritings from './_remote/mock-writings.json';
 import MasonryItem from './_components/Masonry/MasonryItem';
-import Card from './_components/Card/Card';
+import WritingCard from './_components/WritingCard/WritingCard';
 
 export default function Home() {
   const writings = mockWritings;
@@ -22,7 +22,7 @@ export default function Home() {
           {writings.map((writing) => {
             return (
               <MasonryItem key={writing.id}>
-                <Card {...writing} />
+                <WritingCard {...writing} />
               </MasonryItem>
             );
           })}
