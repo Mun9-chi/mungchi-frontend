@@ -3,7 +3,7 @@ import { style, createVar } from '@vanilla-extract/css';
 
 export const volumeVar = createVar();
 
-export const masonry = style([
+export const masonryContainer = style([
   container,
   {
     display: 'grid',
