@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { assignInlineVars } from '@vanilla-extract/dynamic';
 import { useResizeObserver } from '@/app/_hooks/useResizeObserver';
-import * as style from './Masonry.css';
+import * as style from './masonry.css';
 
 type MasonryItemProps = {};
 

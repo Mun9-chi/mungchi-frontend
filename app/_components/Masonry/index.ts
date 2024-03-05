@@ -1,5 +1,5 @@
-import MasonryContainer from './MasonryContainer';
-import MasonryItem from './MasonryItem';
+import MasonryContainer from './masonry-container';
+import MasonryItem from './masonry-item';
 
 const Masonry = Object.assign(MasonryContainer, { Item: MasonryItem });
 
