@@ -1,11 +1,25 @@
+'use client';
+
+import { useState } from 'react';
 import Image from 'next/image';
-import * as style from './app.css';
 
 import Masonry from './_components/masonry';
 import WritingCard from './_components/writing-card';
+import useIntersectionObserver from './_hooks/useIntersectionObserver';
+import { fetchWritingList } from './_actions/fetchWritingList';
+import * as style from './app.css';
 
-export default async function Home() {
-  const writingList = await getWritingList();
+export default function Home() {
+  const [page, setPage] = useState(1);
+  const [writings, setWritings] = useState<Writing[]>([]);
+
+  const loadMore = async () => {
+    const newWritingList = await fetchWritingList(page);
+    setWritings((prev) => prev.concat(newWritingList.data));
+    setPage(page + 1);
+  };
+
+  const loadMoreRef = useIntersectionObserver(loadMore);
 
   return (
     <>
@@ -17,22 +31,14 @@ export default async function Home() {
       </header>
       <main className={style.container}>
         <Masonry>
-          {writingList.data.map((writing) => {
-            return (
-              <Masonry.Item key={writing.id}>
-                <WritingCard {...writing} />
-              </Masonry.Item>
-            );
-          })}
+          {writings.map((writing) => (
+            <Masonry.Item key={writing.id}>
+              <WritingCard {...writing} />
+            </Masonry.Item>
+          ))}
         </Masonry>
+        <div ref={loadMoreRef} />
       </main>
     </>
   );
 }
-
-export const getWritingList = async () => {
-  const res = await fetch('http://localhost:3000/api/writings');
-  const writingList = await res.json();
-
-  return writingList as WritingList;
-};

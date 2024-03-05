@@ -2,13 +2,14 @@
 
 import { useState } from 'react';
 import { assignInlineVars } from '@vanilla-extract/dynamic';
-import { useResizeObserver } from '@/app/_hooks/useResizeObserver';
+
+import useResizeObserver from '@/app/_hooks/useResizeObserver';
 import * as style from './masonry.css';
 
 type MasonryItemProps = {};
 
 export default function MasonryItem(props: React.PropsWithChildren<MasonryItemProps>) {
-  const [volume, setVolume] = useState(300);
+  const [volume, setVolume] = useState(DEFAULT_VOLUME);
 
   const itemRef = useResizeObserver((rect) => {
     const newVolume = Math.ceil(rect.height / 10);
@@ -27,3 +28,5 @@ export default function MasonryItem(props: React.PropsWithChildren<MasonryItemPr
     </div>
   );
 }
+
+const DEFAULT_VOLUME = 300;
