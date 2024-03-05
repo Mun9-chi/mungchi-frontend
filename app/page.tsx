@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import * as style from './app.css';
 
-import Masonry from './_components/Masonry';
-import WritingCard from './_components/WritingCard/WritingCard';
+import Masonry from './_components/masonry';
+import WritingCard from './_components/writing-card';
 
 export default async function Home() {
   const writingList = await getWritingList();
