@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-export const useResizeObserver = (onResize: (rect: DOMRect) => void) => {
+const useResizeObserver = (onResize: (rect: DOMRect) => void) => {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -16,3 +16,5 @@ export const useResizeObserver = (onResize: (rect: DOMRect) => void) => {
 
   return ref;
 };
+
+export default useResizeObserver;
