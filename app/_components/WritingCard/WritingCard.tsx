@@ -3,9 +3,9 @@
 import Image from 'next/image';
 import * as style from './WritingCard.css';
 
-type CardProps = Writing;
+type WritingCardProps = Writing;
 
-export default function Card(props: CardProps) {
+export default function WritingCard(props: WritingCardProps) {
   const { owner } = props;
 
   return (
@@ -24,7 +24,7 @@ export default function Card(props: CardProps) {
             {owner.nickname}
           </div>
           <button className={style.button}>
-            <Image src="/icons/heart-empty.svg" alt="좋아요" width={14} height={14} />
+            <Image src="/icons/heart-empty.svg" alt="좋아요" width={18} height={18} />
             {props.likes}
           </button>
         </div>

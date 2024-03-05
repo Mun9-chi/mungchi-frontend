@@ -50,6 +50,6 @@ export const button = style({
   display: 'flex',
   alignItems: 'center',
   gap: 6,
-  fontSize: 12,
+  fontSize: 14,
   color: '#333',
 });
