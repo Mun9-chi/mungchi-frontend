@@ -1,13 +1,11 @@
 import Image from 'next/image';
 import * as style from './app.css';
-import Masonry from './_components/Masonry/Masonry';
 
-import mockWritings from './_remote/mock-writings.json';
-import MasonryItem from './_components/Masonry/MasonryItem';
+import Masonry from './_components/Masonry';
 import WritingCard from './_components/WritingCard/WritingCard';
 
-export default function Home() {
-  const writings = mockWritings;
+export default async function Home() {
+  const writingList = await getWritingList();
 
   return (
     <>
@@ -19,11 +17,11 @@ export default function Home() {
       </header>
       <main className={style.container}>
         <Masonry>
-          {writings.map((writing) => {
+          {writingList.data.map((writing) => {
             return (
-              <MasonryItem key={writing.id}>
+              <Masonry.Item key={writing.id}>
                 <WritingCard {...writing} />
-              </MasonryItem>
+              </Masonry.Item>
             );
           })}
         </Masonry>
@@ -31,3 +29,10 @@ export default function Home() {
     </>
   );
 }
+
+export const getWritingList = async () => {
+  const res = await fetch('http://localhost:3000/api/writings');
+  const writingList = await res.json();
+
+  return writingList as WritingList;
+};
