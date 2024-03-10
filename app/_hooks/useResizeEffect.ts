@@ -1,6 +1,10 @@
 import { useEffect, useRef } from 'react';
 
-const useResizeObserver = (onResize: (rect: DOMRect) => void) => {
+type Params = {
+  onResize: (rect: DOMRect) => void;
+};
+
+const useResizeEffect = ({ onResize }: Params) => {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -12,9 +16,9 @@ const useResizeObserver = (onResize: (rect: DOMRect) => void) => {
     if (ref.current) resizeObserver.observe(ref.current);
 
     return () => resizeObserver.disconnect();
-  }, []);
+  }, [onResize]);
 
   return ref;
 };
 
-export default useResizeObserver;
+export default useResizeEffect;

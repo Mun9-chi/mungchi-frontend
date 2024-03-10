@@ -6,22 +6,20 @@ import * as style from './writing-card.css';
 type WritingCardProps = Writing;
 
 export default function WritingCard(props: WritingCardProps) {
-  const { owner } = props;
-
   return (
     <section className={style.card}>
-      <img className={style.image} src={owner.imageUrl} />
+      <img className={style.image} src={props.owner.imageUrl} />
       <div className={style.detail}>
         <div className={style.detailHead}>
           <div className={style.profile}>
             <Image
               className={style.profileImage}
-              src={owner.imageUrl}
+              src={props.owner.imageUrl}
               alt="프로필"
               width={26}
               height={26}
             />
-            {owner.nickname}
+            {props.owner.nickname}
           </div>
           <button className={style.button}>
             <Image src="/icons/heart-empty.svg" alt="좋아요" width={18} height={18} />

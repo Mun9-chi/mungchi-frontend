@@ -13,6 +13,7 @@ export const masonryContainer = style([
     columnGap: '16px',
     width: '100%',
     height: '100%',
+
     '@media': {
       '(max-width: 780px)': {
         gridTemplateColumns: `repeat(2, 1fr)`,
@@ -22,11 +23,11 @@ export const masonryContainer = style([
 ]);
 
 export const masonryItem = style({
-  paddingBottom: 16,
   gridRowEnd: `span ${rowSpanVar}`,
 
   display: 'flex',
   flexDirection: 'column',
   width: '100%',
   height: 'max-content',
+  paddingBottom: 16,
 });

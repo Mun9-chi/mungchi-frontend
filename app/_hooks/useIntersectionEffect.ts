@@ -1,6 +1,10 @@
 import { useEffect, useRef } from 'react';
 
-const useIntersectionObserver = (onIntersecting: () => void) => {
+type Params = {
+  onIntersecting: () => void;
+};
+
+const useIntersectionEffect = ({ onIntersecting }: Params) => {
   const ref = useRef(null);
 
   useEffect(() => {
@@ -22,4 +26,4 @@ const useIntersectionObserver = (onIntersecting: () => void) => {
   return ref;
 };
 
-export default useIntersectionObserver;
+export default useIntersectionEffect;
