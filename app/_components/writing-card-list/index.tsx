@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import Masonry from '@/app/_components/masonry';
 import WritingCard from '../writing-card';
-import useIntersectionEffect from '@/app/_hooks/useIntersectionEffect';
+import useIntersectionRef from '@/app/_hooks/useIntersectionRef';
 import { fetchWritingList } from '@/app/_actions/fetchWritingList';
 import { loadMoreArea } from './writing-card-list.css';
 
@@ -18,7 +18,7 @@ export default function WritingCardList() {
     setPage(page + 1);
   };
 
-  const loadMoreRef = useIntersectionEffect({ onIntersecting: loadMore });
+  const loadMoreRef = useIntersectionRef({ onIntersecting: loadMore });
 
   return (
     <Masonry>

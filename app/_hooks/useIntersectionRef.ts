@@ -4,7 +4,7 @@ type Params = {
   onIntersecting: () => void;
 };
 
-const useIntersectionEffect = ({ onIntersecting }: Params) => {
+const useIntersectionRef = ({ onIntersecting }: Params) => {
   const ref = useRef(null);
 
   useEffect(() => {
@@ -26,4 +26,4 @@ const useIntersectionEffect = ({ onIntersecting }: Params) => {
   return ref;
 };
 
-export default useIntersectionEffect;
+export default useIntersectionRef;

@@ -4,7 +4,7 @@ type Params = {
   onResize: (rect: DOMRect) => void;
 };
 
-const useResizeEffect = ({ onResize }: Params) => {
+const useResizeRef = ({ onResize }: Params) => {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -21,4 +21,4 @@ const useResizeEffect = ({ onResize }: Params) => {
   return ref;
 };
 
-export default useResizeEffect;
+export default useResizeRef;
