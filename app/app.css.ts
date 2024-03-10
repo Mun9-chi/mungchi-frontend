@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-export const appLayout = style({
+export const rootLayout = style({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',

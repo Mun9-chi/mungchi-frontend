@@ -1,7 +1,7 @@
 import { container } from '@/app/app.css';
 import { style, createVar } from '@vanilla-extract/css';
 
-export const volumeVar = createVar();
+export const rowSpanVar = createVar();
 
 export const masonryContainer = style([
   container,
@@ -23,11 +23,10 @@ export const masonryContainer = style([
 
 export const masonryItem = style({
   paddingBottom: 16,
-  gridRowEnd: `span ${volumeVar}`,
+  gridRowEnd: `span ${rowSpanVar}`,
 
   display: 'flex',
   flexDirection: 'column',
   width: '100%',
   height: 'max-content',
-  transition: 'gridRowEnd 0.4s',
 });

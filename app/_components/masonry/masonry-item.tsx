@@ -6,14 +6,12 @@ import { assignInlineVars } from '@vanilla-extract/dynamic';
 import useResizeObserver from '@/app/_hooks/useResizeObserver';
 import * as style from './masonry.css';
 
-type MasonryItemProps = {};
-
-export default function MasonryItem(props: React.PropsWithChildren<MasonryItemProps>) {
-  const [volume, setVolume] = useState(DEFAULT_VOLUME);
+export default function MasonryItem(props: React.PropsWithChildren) {
+  const [rowSpan, setRowSpan] = useState(DEFAULT_ROW_SPAN);
 
   const itemRef = useResizeObserver((rect) => {
-    const newVolume = Math.ceil(rect.height / 10);
-    setVolume(newVolume);
+    const newRowSpan = Math.ceil(rect.height / 10);
+    setRowSpan(newRowSpan);
   });
 
   return (
@@ -21,7 +19,7 @@ export default function MasonryItem(props: React.PropsWithChildren<MasonryItemPr
       ref={itemRef}
       className={style.masonryItem}
       style={assignInlineVars({
-        [style.volumeVar]: volume.toString(),
+        [style.rowSpanVar]: String(rowSpan),
       })}
     >
       {props.children}
@@ -29,4 +27,4 @@ export default function MasonryItem(props: React.PropsWithChildren<MasonryItemPr
   );
 }
 
-const DEFAULT_VOLUME = 300;
+const DEFAULT_ROW_SPAN = 300;
